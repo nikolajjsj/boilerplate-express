@@ -9,7 +9,9 @@ app.get('/', function (req, res) {
 
 // add a /json path that serves json data
 app.get('/json', function (req, res) {
-  res.json({ message: 'Hello json' });
+  process.env.MESSAGE_STYLE === 'uppercase'
+    ? res.json({ message: 'HELLO JSON' })
+    : res.json({ message: 'Hello json' });
 });
 
 module.exports = app;
