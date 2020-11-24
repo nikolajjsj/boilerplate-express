@@ -1,10 +1,9 @@
 var express = require('express');
 var app = express();
 
-console.log('Hello World');
 
-const path = '/views/index.html';
-
-app.get('/', (req, res) => res.send(path));
+app.get("/", function(req, res) {
+  res.sendFile(__dirname + "/views/index.html");
+});
 
 module.exports = app;
