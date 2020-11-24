@@ -3,7 +3,7 @@ var app = express();
 
 console.log('Hello World');
 
-const path = __dirname + '/views/index.html';
+const path = '/views/index.html';
 
 app.get('/', (req, res) => res.send(path));
 
