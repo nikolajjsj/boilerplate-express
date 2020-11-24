@@ -3,6 +3,8 @@ var app = express();
 
 console.log('Hello World');
 
-app.get('/', (req, res) => res.send('Hello Express'));
+const path = __dirname + '/views/index.html';
+
+app.get('/', (req, res) => res.send(path));
 
 module.exports = app;
