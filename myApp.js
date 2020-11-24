@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 
 app.use(express.static(__dirname + '/public'));
@@ -35,12 +36,17 @@ app.get('/:word/echo', function (req, res) {
   res.json({ echo: req.params.word });
 });
 
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app
   .route('/name')
   .get(function (req, res) {
     const { first: firstName, last: lastName } = req.query;
     res.json({ name: `${firstName} ${lastName}` });
   })
-  .post(function (req, res) {});
+  .post(function (req, res) {
+    const { first: firstName, last: lastName } = req.body;
+    res.json({ name: `${firstName} ${lastName}` });
+  });
 
 module.exports = app;
