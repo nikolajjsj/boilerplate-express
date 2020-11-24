@@ -9,9 +9,11 @@ app.get('/', function (req, res) {
 
 // add a /json path that serves json data
 app.get('/json', function (req, res) {
+  const message = 'Hello json';
+
   process.env.MESSAGE_STYLE === 'uppercase'
-    ? res.json({ message: 'HELLO JSON' })
-    : res.json({ message: 'Hello json' });
+    ? res.json({ message: message.toUpperCase() })
+    : res.json({ message: message });
 });
 
 module.exports = app;
